@@ -1,4 +1,4 @@
-//---
+---
 layout: project/self
 title: MinGJ
 featured: false

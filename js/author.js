@@ -1,4 +1,4 @@
-//var access_token
+var access_token;
 var adminStatus = false;
 var loggedIn = "";
 var loggedInUser = "";

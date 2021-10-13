@@ -1,4 +1,4 @@
-//---
+---
 title: GitHub Projects
 layout: page
 ---

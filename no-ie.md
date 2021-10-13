@@ -1,4 +1,4 @@
-//---
+---
 title: Your Browser Is Not Supported!
 layout: ie
 comments: false

@@ -1,4 +1,4 @@
-//---
+---
 layout: project/self
 title: Anti-CookieClicker
 featured: true

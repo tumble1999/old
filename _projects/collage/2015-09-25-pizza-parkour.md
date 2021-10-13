@@ -1,4 +1,4 @@
-//---
+---
 title: Pizza Parkour
 date: 2015-09-25 00:00:00 +0000
 layout: project/collage

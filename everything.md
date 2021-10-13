@@ -1,4 +1,4 @@
-//---
+---
 title: Everything
 layout: page
 author: tumble1999
