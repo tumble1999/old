@@ -15,7 +15,7 @@ layout: tumble1999-grid
 
 
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <h2 class="mdl-card__title-text post-title"><a href="{{site.url}}{{ post.url }}">{{ post.title }}</a></h2>
           </div>
           <div class="mdl-card__supporting-text post-meta">
             {% include user-card.html user=post.author date=post.date %}
@@ -39,7 +39,7 @@ layout: tumble1999-grid
 
 
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <h2 class="mdl-card__title-text post-title"><a href="{{site.url}}{{ post.url }}">{{ post.title }}</a></h2>
           </div>
           <div class="mdl-card__supporting-text post-meta">
             {% include user-card.html user=post.author date=post.date %}
