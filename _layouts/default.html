@@ -5,81 +5,84 @@ layout: null
 <!doctype html>
 <html>
 
-	{% include head.html %}
+{% include head.html %}
 
 
-	<body>
-		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-			<header class="mdl-layout__header">
-				<div class="mdl-layout-icon"></div>
-				<div class="mdl-layout__header-row">
-					<a class="mdl-button mdl-js-button mdl-button--icon" href="/">
-					  <i class="material-icons">home</i>
-					</a>
-					<span class="mdl-layout__title">{{ site.title }}</span>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout-icon"></div>
+			<div class="mdl-layout__header-row">
+				<a class="mdl-button mdl-js-button mdl-button--icon" href="/">
+					<i class="material-icons">home</i>
+				</a>
+				<span class="mdl-layout__title">{{ site.title }}</span>
 
-			{% unless page.url contains "/no-ie/" %}
-					<div class="mdl-layout-spacer"></div>
+				{% unless page.url contains "/no-ie/" %}
+				<div class="mdl-layout-spacer"></div>
 
 
-					<form action="/search" method="get" class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+				<form action="{{site.url}}/search" method="get" class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
 											mdl-textfield--floating-label mdl-textfield--align-right">
-						<label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-							<i class="material-icons">search</i>
-						</label>
-						<div class="mdl-textfield__expandable-holder">
-							<input class="mdl-textfield__input" type="text" name="q" id="fixed-header-drawer-exp">
-						</div>
-					</form>
-					<a href="/admin" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="user-author-only">
-						<i class="material-icons">dashboard</i>
-					</a>
-					<!-- Right aligned menu below button -->
-					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect githubAuthor" id="user-logged-in" data-user>
-						<img src="https://mail.google.com/mail/c/u/0/static/images/NoPicture.gif" class="user-avatar userImg" alt="userPicture">
-					</button>
-					<button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="user-logged-out">
-						<i class="material-icons">account_circle</i>
-					</button>
+					<label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+						<i class="material-icons">search</i>
+					</label>
+					<div class="mdl-textfield__expandable-holder">
+						<input class="mdl-textfield__input" type="text" name="q" id="fixed-header-drawer-exp">
+					</div>
+				</form>
+				<a href="{{site.url}}/admin" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect"
+					id="user-author-only">
+					<i class="material-icons">dashboard</i>
+				</a>
+				<!-- Right aligned menu below button -->
+				<button
+					class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect githubAuthor"
+					id="user-logged-in" data-user>
+					<img src="//mail.google.com/mail/c/u/0/static/images/NoPicture.gif" class="user-avatar userImg"
+						alt="userPicture">
+				</button>
+				<button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="user-logged-out">
+					<i class="material-icons">account_circle</i>
+				</button>
 
-					<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-					    for="user-logged-out" >
-					  <a href="/login?ref={{ site.url }}{{ page.url }}" class="mdl-menu__item">Login</a>
-					</ul>
-					<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-					    for="user-logged-in">
-						<a href class="loggedInUserProfile mdl-menu__item">Profile</a>
-						<a href="/admin" class="user-author-only mdl-menu__item">Dashboard</a>
-						<a href class="user-author-only mdl-menu__item myPosts">My Posts</a>
-						<a href="{{site.github.repository_url}}" class="user-author-only mdl-menu__item">GitHub</a>
-						<a href="/logout" class="mdl-menu__item">Logout</a>
-					</ul>
-					{% endunless %}
-				</div>
+				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-logged-out">
+					<a href="{{site.url}}/login?ref={{ site.url }}{{ page.url }}" class="mdl-menu__item">Login</a>
+				</ul>
+				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-logged-in">
+					<a href class="loggedInUserProfile mdl-menu__item">Profile</a>
+					<a href="{{site.url}}/admin" class="user-author-only mdl-menu__item">Dashboard</a>
+					<a href class="user-author-only mdl-menu__item myPosts">My Posts</a>
+					<a href="{{site.github.repository_url}}" class="user-author-only mdl-menu__item">GitHub</a>
+					<a href="{{site.url}}/logout" class="mdl-menu__item">Logout</a>
+				</ul>
+				{% endunless %}
+			</div>
 		</header>
 
 		{% unless page.url contains "/no-ie/" %}
-			<div class="mdl-layout__drawer">
-				<span class="mdl-layout__title">{{ site.title}}</span>
-				<nav class="mdl-navigation">
-					{% for menu in site.data.menus %}
-					{% if menu.name == "Navbar" %}
-					{% for item in menu.items %}
-					<a class="mdl-navigation__link" href="{{ item.href }}">{{ item.name }}</a>
-					{% endfor %}
-					{% endif %}
-					{% endfor %}
-				</nav>
-			</div>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout__title">{{ site.title}}</span>
+			<nav class="mdl-navigation">
+				{% for menu in site.data.menus %}
+				{% if menu.name == "Navbar" %}
+				{% for item in menu.items %}
+				<a class="mdl-navigation__link" href="{{ item.href }}">{{ item.name }}</a>
+				{% endfor %}
+				{% endif %}
+				{% endfor %}
+			</nav>
+		</div>
 		{% endunless %}
-			<main class="mdl-layout__content">
+		<main class="mdl-layout__content">
 
-					{{ content }}
+			{{ content }}
 
 			{% include footer.html %}
-			</main>
-		</div>
-		{{ page.outside-content }}
-		{% include analytics.html %}
-	</body>
+		</main>
+	</div>
+	{{ page.outside-content }}
+	{% include analytics.html %}
+</body>
+
 </html>

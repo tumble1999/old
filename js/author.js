@@ -1,9 +1,9 @@
-var access_token
+//var access_token
 var adminStatus = false;
 var loggedIn = "";
 var loggedInUser = "";
 var authorStatus = false;
-$(function() {
+$(function () {
 	var url = "";
 	var admins_url = "";
 
@@ -13,13 +13,13 @@ $(function() {
 		console.log("userInit");
 		loggedIn = localStorage.getItem("loggedIn");
 		console.log("Logged In: " + loggedIn);
-		if(loggedIn=="true") {
+		if (loggedIn == "true") {
 			console.log("userLoggedIn");
 
 			access_token = localStorage.getItem("access_token");
 			url = "https://api.github.com/user?access_token=" + access_token;
 
-			$.getJSON(url, function(currentUser) {
+			$.getJSON(url, function (currentUser) {
 				loggedInUser = currentUser.login;
 				console.log("Logged in user: " + loggedInUser);
 
@@ -47,7 +47,7 @@ $(function() {
 				$('.loggedInUserProfile').attr("href", "http://github.com/" + loggedInUser);
 
 				$('.newCommentUsername').val(loggedInUser);
-				$('.newCommentUsername').attr("value", loggedInUser );
+				$('.newCommentUsername').attr("value", loggedInUser);
 				$('.newCommentUsername').parent().addClass('is-dirty');
 				console.log("userLoggedIn pt2");
 				callback();
@@ -93,7 +93,7 @@ function refresh() {
 
 	//console.log(ghDivs);
 
-	$('.githubAuthor').each(function(id, object) {
+	$('.githubAuthor').each(function (id, object) {
 		console.log(object);
 		console.log("USER:" + this.dataset.user);
 
@@ -103,18 +103,18 @@ function refresh() {
 		var adminStatusMessage = "";
 		var authorStatusMessage = "";
 		var authorPostsLink = "";
-		$.getJSON(url, function(userInfo) {
+		$.getJSON(url, function (userInfo) {
 			console.log(userInfo);
 
 			var admins_url = "https://api.github.com/repos/tumble1999/tumble1999.github.io/collaborators?access_token=" + admin_code_1 + admin_code_2;
-			$.getJSON(admins_url, function(colabs) {
-				for(var i = 0; i < colabs.length; i++) {
-				    if (colabs[i].login == userInfo.login) {
-					adminStatusMessage = "[ADMIN] ";
-					break;
-				    }
+			$.getJSON(admins_url, function (colabs) {
+				for (var i = 0; i < colabs.length; i++) {
+					if (colabs[i].login == userInfo.login) {
+						adminStatusMessage = "[ADMIN] ";
+						break;
+					}
 				}
-				if(_PAGE_AUTHOR_ == userInfo.login) {
+				if (_PAGE_AUTHOR_ == userInfo.login) {
 					authorStatusMessage = "[AUTHOR]";
 					authorPostsLink = "     [<a href='/authors?a=" + userInfo.login + "'>view other posts</a>]";
 				}
@@ -143,11 +143,11 @@ function refresh() {
 }
 
 function amIAnAdmin() {
-	if(loggedIn == "true") {
-		if(admin) {
-			console.log("Yes " + loggedInUser +  ", you are!");
+	if (loggedIn == "true") {
+		if (admin) {
+			console.log("Yes " + loggedInUser + ", you are!");
 		} else {
-			console.log("No " + loggedInUser +  ", stop begging.");
+			console.log("No " + loggedInUser + ", stop begging.");
 		}
 	} else {
 		console.log("How would I know, your not even logged in!");
@@ -156,7 +156,7 @@ function amIAnAdmin() {
 }
 
 function amILoggedIn() {
-	if(loggedIn == "true") {
+	if (loggedIn == "true") {
 		console.log("Yes.  Welcome " + loggedInUser + ".");
 	} else {
 		console.log("No. Go away stranger.");

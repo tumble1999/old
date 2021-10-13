@@ -1,4 +1,4 @@
----
+//---
 layout: project/self
 title: Cinnabar
 featured: false

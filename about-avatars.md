@@ -1,4 +1,4 @@
----
+//---
 title: Avatar info
 layout: page
 author: tumble1999
